@@ -1,0 +1,12 @@
+services:
+  road-lane:
+    build: .
+    image: road-lane-lines-detection:latest
+    container_name: road-lane-lines-detection
+    volumes:
+      - ./:/app # input video, config and outputs shared with host
+    # cv2.imshow window only works on Linux + X11. Leave disabled on macOS/Windows;
+    # the script still writes the annotated output video to the project folder.
+    # environment:
+    #   - DISPLAY=${DISPLAY}
+    # Add "- /tmp/.X11-unix:/tmp/.X11-unix" to the volumes above to enable X11.
